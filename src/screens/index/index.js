@@ -20,6 +20,7 @@ import QLMH from '../QL_MH/QLMH';
 import ThanhToan from '../ThanhToan/ThanhToan';
 import Grid_MatHang from '../../components/Grid_MatHang';
 import ChitietMH from '../../components/ChitietMH';
+import MatHangTheoLoai from '../../components/MatHangTheoLoai';
 
 import LayoutComponent from '../layoutTest/layout';
 import HomeScreenTest from '../layoutTest/home';
@@ -70,6 +71,7 @@ export default function RootComponent() {
       <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="ChitietMH" component={ChitietMH} />
+        <Stack.Screen name="MatHangTheoLoai" component={MatHangTheoLoai} />
         {/* ThanhToan, HomeScreen,  */}
         {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
         <Stack.Screen name="ThanhToan" component={ThanhToan} />

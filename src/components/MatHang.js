@@ -20,8 +20,8 @@ import {transform} from '@babel/core';
 import {Dimensions} from 'react-native';
 import { SearchBar } from 'react-native-screens';
 //import colors from '../constants/colors';
-
-export default MatHang = function({navigation}){
+import { useNavigation } from '@react-navigation/native';
+export default MatHang = function({navigation = useNavigation()}){
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getLoaiHang();
@@ -44,9 +44,9 @@ export default MatHang = function({navigation}){
                 renderItem={({item}) => {
                     return (
                     <TouchableOpacity
-                        onPress={()=>{
-                            alert(`press ${item.TENMH}`)
-                        }}
+                        onPress={() => navigation.navigate("ChitietMH", {
+                          MAMH: item.MAMH,
+                        })}
                         style={styles.matHang}>
                         <Image
                             style={{width: 50,height: 50,resizeMode: 'cover',borderRadius: 10,margin: 10}}

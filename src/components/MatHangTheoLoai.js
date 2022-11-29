@@ -22,7 +22,9 @@ import { SearchBar } from 'react-native-screens';
 //import colors from '../constants/colors';
 import { useNavigation } from '@react-navigation/native';
 
-export default GridMatHang = function({navigation = useNavigation()}){
+export default MatHangTheoLoai = function({navigation = useNavigation(), route}){
+    const id = route.params.MALOAI;
+    console.log(id);
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getLoaiHang();
@@ -31,7 +33,7 @@ export default GridMatHang = function({navigation = useNavigation()}){
       const getLoaiHang = () => {
         axios
           .get(
-            'https://opensheet.elk.sh/1CU0JOnN3HZfViWBoOCqurpp537vJ90Gt_MPd9fm-lxg/MatHang',
+            'https://sheetdb.io/api/v1/e3l66thzdhdwt/search?MALOAI=' + id,
           )
           .then(json => setCategories(json.data));
       };

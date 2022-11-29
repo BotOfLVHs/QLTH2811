@@ -18,7 +18,9 @@ import MatHang from '../../components/MatHang';
 import AntIcon from 'react-native-vector-icons/MaterialIcons';
 import IonIcons from 'react-native-vector-icons/MaterialIcons';
 import Grid_MatHang from '../../components/Grid_MatHang';
-export default HomeScreen = function({ navigation}){
+import { useNavigation } from '@react-navigation/native';
+
+export default HomeScreen = function({navigation = useNavigation()}){
   return (
     <View>
       <StatusBar backgroundColor="#828282" />
@@ -111,7 +113,9 @@ export default HomeScreen = function({ navigation}){
               See all
             </Text>
           </View>
-            <Grid_MatHang/>
+            <ScrollView ScrollView horizontal={true} style={{ width: "100%" }}>
+                <Grid_MatHang/>
+            </ScrollView>
         </View>
 
       </ScrollView>
