@@ -18,6 +18,7 @@ import RegisterView from '../register/registerView';
 import HomeScreen from '../home/home';
 import QLMH from '../QL_MH/QLMH';
 import ThanhToan from '../ThanhToan/ThanhToan';
+import Grid_MatHang from '../../components/Grid_MatHang';
 
 import LayoutComponent from '../layoutTest/layout';
 import HomeScreenTest from '../layoutTest/home';
@@ -66,7 +67,7 @@ export default function RootComponent() {
     <NavigationContainer>
       {getLoginedStatus?
       <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
-        <Stack.Screen name="HomeScreen" component={ThanhToan} />
+        <Stack.Screen name="HomeScreen" component={Grid_MatHang} />
         {/* ThanhToan, HomeScreen,  */}
         {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
         <Stack.Screen name="ThanhToan" component={ThanhToan} />
