@@ -20,8 +20,9 @@ import {transform} from '@babel/core';
 import {Dimensions} from 'react-native';
 import { SearchBar } from 'react-native-screens';
 //import colors from '../constants/colors';
+import { useNavigation } from '@react-navigation/native';
 
-export default GridMatHang = function({navigation}){
+export default GridMatHang = function({navigation = useNavigation()}){
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getLoaiHang();
@@ -39,7 +40,9 @@ export default GridMatHang = function({navigation}){
         <View style={styles.items}>
             <View style={styles.productCard}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('productCheckout')}>
+                    onPress={() =>
+                        navigation.navigate("ChitietMH")
+                      }>
                         <View>
                             <Image
                                 style={styles.image}

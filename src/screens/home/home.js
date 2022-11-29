@@ -17,7 +17,7 @@ import MatHang from '../../components/MatHang';
 // import getLoai from  '../../function/load';
 import AntIcon from 'react-native-vector-icons/MaterialIcons';
 import IonIcons from 'react-native-vector-icons/MaterialIcons';
-
+import Grid_MatHang from '../../components/Grid_MatHang';
 export default HomeScreen = function({ navigation}){
   return (
     <View>
@@ -111,144 +111,7 @@ export default HomeScreen = function({ navigation}){
               See all
             </Text>
           </View>
-          <View
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              flexDirection: 'row',
-            }}>
-            <View style={styles.productCard}>
-              <View
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  flexDirection: 'row',
-                }}>
-                <Image
-                  style={{marginTop: 30}}
-                  source={require('../../assets/orange.png')}
-                />
-                <IonIcons
-                  style={styles.heartIcon}
-                  name="search"
-                  size={25}
-                />
-              </View>
-              <View
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  flexDirection: 'row',
-                }}>
-                <Text style={{fontSize: 16, paddingLeft: 8}}>Malta</Text>
-                <View
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    paddingRight: 8,
-                  }}>
-                  <Image source={require('../../assets/star.png')} />
-                  <Text style={{color: '#16162E', fontSize: 10}}>4.5</Text>
-                </View>
-              </View>
-              <Text style={{fontSize: 14, paddingLeft: 8, color: '#d3d3d3'}}>
-                4 Pic
-              </Text>
-              <View
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  flexDirection: 'row',
-                  marginTop: 10,
-                }}>
-                <Text style={{fontSize: 18, paddingLeft: 8, fontWeight: 'bold'}}>
-                  $12.50
-                </Text>
-                <View
-                  style={{
-                    backgroundColor: '#40AA54',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginRight: 10,
-                    padding: 5,
-                    borderRadius: 5,
-                  }}>
-                  <AntIcon name="search" color="white" size={25} />
-                </View>
-              </View>
-            </View>
-            <View style={styles.productCard}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('productCheckout')}>
-                <View
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    flexDirection: 'row',
-                  }}>
-                  <Image
-                    style={{marginTop: 30, height: 80, width: 100}}
-                    source={require('../../assets/garlic.png')}
-                  />
-                  <IonIcons
-                    style={styles.heartIcon}
-                    name="search"
-                    size={25}
-                    color="#F33A63"
-                  />
-                </View>
-                <View
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                  }}>
-                  <Text style={{fontSize: 16, paddingLeft: 8}}>Garlic</Text>
-                  <View
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                      paddingRight: 8,
-                    }}>
-                    <Image source={require('../../assets/star.png')} />
-                    <Text style={{color: '#16162E', fontSize: 10}}>4.5</Text>
-                  </View>
-                </View>
-                <Text style={{fontSize: 14, paddingLeft: 8, color: '#d3d3d3'}}>
-                  Weight : 1Kg
-                </Text>
-                <View
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    flexDirection: 'row',
-                    marginTop: 10,
-                  }}>
-                  <Text
-                    style={{fontSize: 18, paddingLeft: 8, fontWeight: 'bold'}}>
-                    $17.00
-                  </Text>
-                  <View
-                    style={{
-                      backgroundColor: '#40AA54',
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      marginRight: 10,
-                      padding: 5,
-                      borderRadius: 8,
-                    }}>
-                    <AntIcon name="search" color="white" size={25} />
-                  </View>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
+            <Grid_MatHang/>
         </View>
 
       </ScrollView>
