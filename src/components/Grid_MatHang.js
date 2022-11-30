@@ -57,6 +57,9 @@ export default GridMatHang = function({navigation = useNavigation()}){
                         <View>
                             <Text style={{fontSize: 16, paddingLeft: 8}}>{item.DONGIA}</Text>
                         </View>
+                        <View>
+                            <Text style={{fontSize: 16, paddingLeft: 8}}>{item.HINHANH}</Text>
+                        </View>
                 </TouchableOpacity>
             </View>
             
