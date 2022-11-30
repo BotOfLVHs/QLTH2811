@@ -18,6 +18,9 @@ import RegisterView from '../register/registerView';
 import HomeScreen from '../home/home';
 import QLMH from '../QL_MH/QLMH';
 import ThanhToan from '../ThanhToan/ThanhToan';
+import Grid_MatHang from '../../components/Grid_MatHang';
+import ChitietMH from '../../components/ChitietMH';
+import MatHangTheoLoai from '../../components/MatHangTheoLoai';
 
 import LayoutComponent from '../layoutTest/layout';
 import HomeScreenTest from '../layoutTest/home';
@@ -66,7 +69,9 @@ export default function RootComponent() {
     <NavigationContainer>
       {getLoginedStatus?
       <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
-        <Stack.Screen name="HomeScreen" component={ThanhToan} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="ChitietMH" component={ChitietMH} />
+        <Stack.Screen name="MatHangTheoLoai" component={MatHangTheoLoai} />
         {/* ThanhToan, HomeScreen,  */}
         {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
         <Stack.Screen name="ThanhToan" component={ThanhToan} />
@@ -79,6 +84,7 @@ export default function RootComponent() {
         <Stack.Screen name="LoginView" component={LoginView} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="Test" component={LayoutComponent} />
+        <Stack.Screen name="ChitietMH" component={ChitietMH} />
         {console.log(ngayHT.getHours()+":"+ngayHT.getMinutes()+":"+ngayHT.getSeconds()+' End all Screens2.')}
 
       </Stack.Navigator>

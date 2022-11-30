@@ -20,8 +20,9 @@ import {transform} from '@babel/core';
 import {Dimensions} from 'react-native';
 import { SearchBar } from 'react-native-screens';
 //import colors from '../constants/colors';
+import { useNavigation } from '@react-navigation/native';
 
-export default LoaiHang = function({navigation}){
+export default LoaiHang = function({navigation = useNavigation()}){
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getLoaiHang();
@@ -45,7 +46,7 @@ export default LoaiHang = function({navigation}){
                     return (
                     <TouchableOpacity
                         onPress={()=>{
-                            alert(`press ${item.TENLOAI}`)
+                            navigation.navigate('MatHangTheoLoai', {MALOAI: item.MALOAI,})
                         }}
                         style={styles.categoryBox}>
                         <Image
