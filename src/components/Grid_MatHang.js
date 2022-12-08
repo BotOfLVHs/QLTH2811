@@ -11,64 +11,61 @@ import {
     Modal,
     ActivityIndicator,
     Animated,
-  } from 'react-native';
+} from 'react-native';
 
 import { Dropdown } from 'react-native-element-dropdown';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {transform} from '@babel/core';
-import {Dimensions} from 'react-native';
+import { transform } from '@babel/core';
+import { Dimensions } from 'react-native';
 import { SearchBar } from 'react-native-screens';
 //import colors from '../constants/colors';
 import { useNavigation } from '@react-navigation/native';
 
-export default GridMatHang = function({navigation = useNavigation()}){
+export default GridMatHang = function ({ navigation = useNavigation() }) {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         getLoaiHang();
-      }, []);
-      //List MH
-      const getLoaiHang = () => {
+    }, []);
+    //List MH
+    const getLoaiHang = () => {
         axios
-          .get(
-            'https://opensheet.elk.sh/1CU0JOnN3HZfViWBoOCqurpp537vJ90Gt_MPd9fm-lxg/MatHang',
-          )
-          .then(json => setCategories(json.data));
-      };
-    const renderItem = ({item, index}) => {
+            .get(
+                'https://opensheet.elk.sh/1CU0JOnN3HZfViWBoOCqurpp537vJ90Gt_MPd9fm-lxg/MatHang',
+            )
+            .then(json => setCategories(json.data));
+    };
+    const renderItem = ({ item, index }) => {
         return (
-        <View style={styles.items}>
-            <View style={styles.productCard}>
-                <TouchableOpacity
-                    onPress={() =>
-                        navigation.navigate("ChitietMH", {
-                            MAMH: item.MAMH,
-                          })
-                      }>
+            <View style={styles.items}>
+                <View style={styles.productCard}>
+                    <TouchableOpacity
+                        onPress={() =>
+                            navigation.navigate("ChitietMH", {
+                                MAMH: item.MAMH,
+                            })
+                        }>
                         <View>
                             <Image
                                 style={styles.image}
-                                source={{uri: item.HINHANH}}
+                                source={{ uri: item.HINHANH }}
                             />
                         </View>
                         <View>
-                            <Text style={{alignItems: 'center',fontSize: 16, paddingLeft: 8}}>{item.TENMH}</Text>
+                            <Text style={{ alignItems: 'center', fontSize: 16, paddingLeft: 8 }}>{item.TENMH}</Text>
                         </View>
                         <View>
-                            <Text style={{fontSize: 16, paddingLeft: 8}}>{item.DONGIA}</Text>
+                            <Text style={{ fontSize: 16, paddingLeft: 8 }}>{item.DONGIA}</Text>
                         </View>
-                        <View>
-                            <Text style={{fontSize: 16, paddingLeft: 8}}>{item.HINHANH}</Text>
-                        </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                </View>
+
             </View>
-            
-        </View>
         )
     }
     return (
         <View style={styles.container}>
-            <FlatList 
+            <FlatList
                 numColumns={2}
                 data={categories}
                 keyExtractor={item => item.MAMH}
@@ -76,12 +73,12 @@ export default GridMatHang = function({navigation = useNavigation()}){
                 style={styles.container}
                 initialNumToRender={6}>
             </FlatList>
-    </View>
+        </View>
     )
 }
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-        flex:1,
+        flex: 1,
     },
 
     items: {
@@ -95,7 +92,7 @@ const styles=StyleSheet.create({
     image: {
         width: 100,
         height: 100,
-        
+
     },
 
     productCard: {
@@ -106,5 +103,5 @@ const styles=StyleSheet.create({
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center',
-      },
+    },
 });

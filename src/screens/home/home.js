@@ -20,54 +20,34 @@ import IonIcons from 'react-native-vector-icons/MaterialIcons';
 import Grid_MatHang from '../../components/Grid_MatHang';
 import { useNavigation } from '@react-navigation/native';
 
-export default HomeScreen = function({navigation = useNavigation()}){
+export default HomeScreen = function ({ navigation = useNavigation() }) {
   return (
     <View>
       <StatusBar backgroundColor="#828282" />
       <HeaderComp />
       <ScrollView>
-        <View
-          style={{
-            padding: 20,
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            marginTop: 10,
-          }}>
-          <TextInput
-            style={styles.input}
-            placeholder="Tên sản phẩm"
-            underlineColorAndroid="transparent"
-          />
-          <View style={styles.filter}>
-            <IonIcons
-              style={{color: 'white', textAlign: 'center'}}
-              name="search"
-              size={25}
-            />
+
+        <View style={styles.categories}>
+          <View
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+              paddingRight: 18,
+              paddingLeft: 18,
+
+              marginTop: 10,
+            }}>
+            <Text style={{ color: '#16162E', fontSize: 18, fontWeight: 'bold' }}>
+              Loại hàng
+            </Text>
+            <Text style={{ color: '#F33A63', fontSize: 14, fontWeight: 'bold' }}>
+              Thêm
+            </Text>
           </View>
-        </View>
-      <View style={styles.categories}>
-        <View
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            paddingRight: 18,
-            paddingLeft: 18,
-
-            marginTop: 10,
-          }}>
-          <Text style={{color: '#16162E', fontSize: 18, fontWeight: 'bold'}}>
-            Loại hàng
-          </Text>
-          <Text style={{color: '#F33A63', fontSize: 14, fontWeight: 'bold'}}>
-            Thêm
-          </Text>
-        </View>
 
         </View>
-          <LoaiHang/>
+        <LoaiHang />
         <View style={styles.tabs}>
           <Text style={styles.tabFontNew}>Mới</Text>
           <Text style={styles.tabFont}>Phổ biến</Text>
@@ -84,17 +64,17 @@ export default HomeScreen = function({navigation = useNavigation()}){
               paddingLeft: 18,
               marginTop: 10,
             }}>
-            <Text style={{color: '#16162E', fontSize: 18, fontWeight: 'bold'}}>
+            <Text style={{ color: '#16162E', fontSize: 18, fontWeight: 'bold' }}>
               Sản phẩm mới
             </Text>
 
             <Text
               onPress={() => navigation.navigate('moreProducts')}
-              style={{color: '#F33A63', fontSize: 14, fontWeight: 'bold'}}>
+              style={{ color: '#F33A63', fontSize: 14, fontWeight: 'bold' }}>
               xem tiếp
             </Text>
           </View>
-          <MatHang/>
+          <MatHang />
         </View>
         <View style={styles.categories}>
           <View
@@ -106,16 +86,16 @@ export default HomeScreen = function({navigation = useNavigation()}){
               paddingLeft: 18,
               marginTop: 10,
             }}>
-            <Text style={{color: '#16162E', fontSize: 18, fontWeight: 'bold'}}>
+            <Text style={{ color: '#16162E', fontSize: 18, fontWeight: 'bold' }}>
               Popular product
             </Text>
-            <Text style={{color: '#F33A63', fontSize: 14, fontWeight: 'bold'}}>
+            <Text style={{ color: '#F33A63', fontSize: 14, fontWeight: 'bold' }}>
               See all
             </Text>
           </View>
-            <ScrollView ScrollView horizontal={true} style={{ width: "100%" }}>
-                <Grid_MatHang/>
-            </ScrollView>
+          <ScrollView ScrollView horizontal={true} style={{ width: "100%" }}>
+            <Grid_MatHang />
+          </ScrollView>
         </View>
 
       </ScrollView>

@@ -21,10 +21,11 @@ import ThanhToan from '../ThanhToan/ThanhToan';
 import Grid_MatHang from '../../components/Grid_MatHang';
 import ChitietMH from '../../components/ChitietMH';
 import MatHangTheoLoai from '../../components/MatHangTheoLoai';
+import Cart from '../Cart/BanHang';
 
 import LayoutComponent from '../layoutTest/layout';
 import HomeScreenTest from '../layoutTest/home';
-  
+
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -32,64 +33,66 @@ const Tab = createBottomTabNavigator();
 
 
 var ngayHT = new Date();
-const Getstarteds =() =>{
-  return(
-    <Drawer.Navigator initialRouteName='Getstarted1' screenOptions={{headerShown:false}}>
+const Getstarteds = () => {
+  return (
+    <Drawer.Navigator initialRouteName='Getstarted1' screenOptions={{ headerShown: false }}>
       <Drawer.Screen name="Getstarted1" component={Login} />
       <Drawer.Screen name="Getstarted2" component={Login2} />
       <Drawer.Screen name="Getstarted3" component={Login3} />
       <Drawer.Screen name="Getstarted4" component={Login4} />
-      {console.log(ngayHT.getHours()+":"+ngayHT.getMinutes()+":"+ngayHT.getSeconds()+' End Getstarted Screens.')}
+      {console.log(ngayHT.getHours() + ":" + ngayHT.getMinutes() + ":" + ngayHT.getSeconds() + ' End Getstarted Screens.')}
     </Drawer.Navigator>
   );
 }
-const Handles =() =>{
-  return(
-    <Tab.Navigator screenOptions={{headerShown:false}}>
-    {/* npm install @react-navigation/bottom-tabs */}
+const Handles = () => {
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      {/* npm install @react-navigation/bottom-tabs */}
       <Tab.Screen name="Đăng nhập" component={LoginView} />
       <Tab.Screen name="Đăng ký" component={RegisterView} />
-      {console.log(ngayHT.getHours()+":"+ngayHT.getMinutes()+":"+ngayHT.getSeconds()+' End Login Screens.')}
-     </Tab.Navigator>
+      {console.log(ngayHT.getHours() + ":" + ngayHT.getMinutes() + ":" + ngayHT.getSeconds() + ' End Login Screens.')}
+    </Tab.Navigator>
   );
 }
-const LoginRegister =() =>{
-  return(
-    <Tab.Navigator screenOptions={{headerShown:false}}>
-    {/* npm install @react-navigation/bottom-tabs */}
+const LoginRegister = () => {
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      {/* npm install @react-navigation/bottom-tabs */}
       <Tab.Screen name="Đăng nhập" component={LoginView} />
       <Tab.Screen name="Đăng ký" component={RegisterView} />
-      {console.log(ngayHT.getHours()+":"+ngayHT.getMinutes()+":"+ngayHT.getSeconds()+' End Login Screens.')}
-     </Tab.Navigator>
+      {console.log(ngayHT.getHours() + ":" + ngayHT.getMinutes() + ":" + ngayHT.getSeconds() + ' End Login Screens.')}
+    </Tab.Navigator>
   );
 }
 export default function RootComponent() {
-    var [getLoginedStatus, setLoginedStatus] = React.useState(true); //false=chua login
+  var [getLoginedStatus, setLoginedStatus] = React.useState(true); //false=chua login
   return (
     <NavigationContainer>
-      {getLoginedStatus?
-      <Stack.Navigator initialRouteName='HomeScreen' screenOptions={{headerShown:false}}>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="ChitietMH" component={ChitietMH} />
-        <Stack.Screen name="MatHangTheoLoai" component={MatHangTheoLoai} />
-        {/* ThanhToan, HomeScreen,  */}
-        {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
-        <Stack.Screen name="ThanhToan" component={ThanhToan} />
-        {console.log(ngayHT.getHours()+":"+ngayHT.getMinutes()+":"+ngayHT.getSeconds()+' End Handles Screens.')}
+      {getLoginedStatus ?
+        <Stack.Navigator initialRouteName='ThanhToan' screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="Cart" component={Cart} />
+          <Stack.Screen name="ChitietMH" component={ChitietMH} />
+          <Stack.Screen name="MatHangTheoLoai" component={MatHangTheoLoai} />
+          <Stack.Screen name="QLMH" component={QLMH} />
+          {/* ThanhToan, HomeScreen,  */}
+          {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
+          <Stack.Screen name="ThanhToan" component={ThanhToan} />
+          {console.log(ngayHT.getHours() + ":" + ngayHT.getMinutes() + ":" + ngayHT.getSeconds() + ' End Handles Screens.')}
 
-      </Stack.Navigator>:
-      <Stack.Navigator initialRouteName='Getstarted' screenOptions={{headerShown:false}}>
-        <Stack.Screen name="Getstarted" component={Getstarteds} />
-        <Stack.Screen name="LoginRegister" component={LoginRegister} />
-        <Stack.Screen name="LoginView" component={LoginView} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="Test" component={LayoutComponent} />
-        <Stack.Screen name="ChitietMH" component={ChitietMH} />
-        {console.log(ngayHT.getHours()+":"+ngayHT.getMinutes()+":"+ngayHT.getSeconds()+' End all Screens2.')}
+        </Stack.Navigator> :
+        <Stack.Navigator initialRouteName='Getstarted' screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Getstarted" component={Getstarteds} />
+          <Stack.Screen name="LoginRegister" component={LoginRegister} />
+          <Stack.Screen name="LoginView" component={LoginView} />
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="Test" component={LayoutComponent} />
+          <Stack.Screen name="ChitietMH" component={ChitietMH} />
+          {console.log(ngayHT.getHours() + ":" + ngayHT.getMinutes() + ":" + ngayHT.getSeconds() + ' End all Screens2.')}
 
-      </Stack.Navigator>
-      
-    }
+        </Stack.Navigator>
+
+      }
       {/* <Stack.Navigator initialRouteName='Getstarted1' screenOptions={{headerShown:false}}>
         <Stack.Screen name="Getstarted1" component={HomeScreenTest} />
         <Stack.Screen name="Getstarted2" component={Login2} />
@@ -126,13 +129,13 @@ export default function RootComponent() {
     Vào:'android\app\build.gradle' dependencies {
  */
 
-      /** navigation
-       * navigation.pop(2)
-       * navigation.popToTop(2)
-       * navigation.goBack()
-       * navigation.navigate('')
-       */
-      /**uploa
-       * npm install cloudinary-core --save
-       * var cl = new cloudinary.Cloudinary({cloud_name: "drdpsyw02", secure: true});
-       */
+/** navigation
+ * navigation.pop(2)
+ * navigation.popToTop(2)
+ * navigation.goBack()
+ * navigation.navigate('')
+ */
+/**uploa
+ * npm install cloudinary-core --save
+ * var cl = new cloudinary.Cloudinary({cloud_name: "drdpsyw02", secure: true});
+ */

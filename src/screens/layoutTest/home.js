@@ -69,7 +69,7 @@ export default HomeScreenTest = function({ navigation}){
             </View>
              <View style={styles.categoryBox}>
                 <Text>hi</Text>
-             
+
             </View>
           </View>
         </ScrollView>
