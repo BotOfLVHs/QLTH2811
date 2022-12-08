@@ -11,7 +11,7 @@ const ThanhToan = ({navigation}) => {
               <IonIcons
                 style={{color: 'green', textAlign: 'center'}}
                 name="arrow-back"
-                size={30}
+                size={31}
               />
             </Text>
           </TouchableOpacity>
